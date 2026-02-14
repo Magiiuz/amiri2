@@ -12,11 +12,27 @@ body{
 margin:0;
 height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 font-family:'Dancing Script', cursive;
 overflow:hidden;
+text-align:center;
+color:white;
+}
+
+/* Texto superior */
+.intro{
+font-size:40px;
+margin-bottom:40px;
+text-shadow:0 4px 15px rgba(0,0,0,0.3);
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(-20px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 /* Corazón */
@@ -31,7 +47,6 @@ transition:0.4s;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:1;
 }
 
 .heart:hover{
@@ -46,7 +61,6 @@ width:200px;
 height:200px;
 background:#ff3366;
 border-radius:50%;
-z-index:0; /* ahora quedan detrás */
 }
 
 .heart::before{
@@ -59,20 +73,19 @@ left:100px;
 top:0;
 }
 
-/* Texto */
+/* Texto dentro del corazón */
 .message{
 position:absolute;
 transform:rotate(45deg);
 color:white;
-font-size:42px;
+font-size:45px;
 opacity:0;
 transition:0.6s;
-text-shadow:0 4px 15px rgba(0,0,0,0.3);
-z-index:2; /* encima del corazón */
-text-align:center;
+text-shadow:0 4px 15px rgba(0,0,0,0.4);
+z-index:2;
 }
 
-/* Mostrar */
+/* Mostrar mensaje */
 .show{
 opacity:1;
 }
@@ -80,6 +93,11 @@ opacity:1;
 </head>
 
 <body>
+
+<div class="intro">
+Quiero decirte algo… 💌<br>
+Presiona el corazón ❤️
+</div>
 
 <div class="heart" onclick="showLove()">
 <div class="message" id="loveText">TE AMO ❤️</div>
